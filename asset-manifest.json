@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/sd-bingo-webapp/static/css/main.e9e52389.css",
-    "main.js": "/sd-bingo-webapp/static/js/main.8b852615.js",
+    "main.js": "/sd-bingo-webapp/static/js/main.16187336.js",
     "static/js/787.9086b5fe.chunk.js": "/sd-bingo-webapp/static/js/787.9086b5fe.chunk.js",
     "static/media/sd-bingo-logo.png": "/sd-bingo-webapp/static/media/sd-bingo-logo.8711bc85b16f9c035212.png",
     "index.html": "/sd-bingo-webapp/index.html",
     "main.e9e52389.css.map": "/sd-bingo-webapp/static/css/main.e9e52389.css.map",
-    "main.8b852615.js.map": "/sd-bingo-webapp/static/js/main.8b852615.js.map",
+    "main.16187336.js.map": "/sd-bingo-webapp/static/js/main.16187336.js.map",
     "787.9086b5fe.chunk.js.map": "/sd-bingo-webapp/static/js/787.9086b5fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9e52389.css",
-    "static/js/main.8b852615.js"
+    "static/js/main.16187336.js"
   ]
 }
