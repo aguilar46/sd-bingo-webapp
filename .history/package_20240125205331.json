@@ -1,22 +1,20 @@
 {
   "name": "sd-bingo-web",
   "version": "0.1.0",
-  "homepage": "https://aguilar46.github.io/sd-bingo-webapp",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
     "jotai": "^2.6.3",
-    "prop-types": "^15.8.1",
+    "proptypes": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-modal": "^3.16.1",
     "react-scripts": "5.0.1",
-    "react-widgets": "^5.8.4",
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,9 +39,6 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "gh-pages": "^6.1.1"
   }
 }

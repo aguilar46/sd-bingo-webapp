@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can be rendered 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    Utah Jazz Bingo
+  </div>
+</div>
+`;
