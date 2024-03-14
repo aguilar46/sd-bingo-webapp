@@ -1,10 +1,9 @@
 {
   "name": "sd-bingo-web",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "homepage": "https://aguilar46.github.io/sd-bingo-webapp",
   "private": true,
   "dependencies": {
-    "downloadjs": "^1.4.7",
     "html-to-image": "^1.11.11",
     "jotai": "^2.6.3",
     "prop-types": "^15.8.1",
@@ -12,6 +11,7 @@
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.4",
     "react-widgets": "^5.8.4",
     "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"

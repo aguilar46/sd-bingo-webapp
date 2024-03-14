@@ -9,12 +9,14 @@ import Board from './Board';
 import { useModal } from '../util/useModal';
 import HamburgerModal, { hamburgerReturnOptions } from './modal/HamburgerModal';
 import OptionsModal from './modal/OptionsModal';
-import { atoms, touchTypes } from '../data';
+import { atoms } from '../data';
 import { getBingoTypeDisplayName, createNewBoard } from '../util';
 import gearIcon from '../images/211751_gear_icon.png';
 import InfoModal from './modal/InfoModal';
 import AboutView from './AboutView';
 import { toBlob } from 'html-to-image';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TopView = styled.div`
   height: 100%;
@@ -100,6 +102,7 @@ const App = (props) => {
               [blob.type]: blob,
             }),
           ]);
+          toast('Image copied to clipboard');
           break;
         default:
           break;
@@ -123,6 +126,7 @@ const App = (props) => {
       {hamburgerModal}
       {allOptionsModal}
       {aboutModal}
+      <ToastContainer position="bottom-right" />
     </TopView>
   );
 };
