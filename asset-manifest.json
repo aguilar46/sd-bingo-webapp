@@ -1,16 +1,22 @@
 {
   "files": {
     "main.css": "/sd-bingo-webapp/static/css/main.e9e52389.css",
-    "main.js": "/sd-bingo-webapp/static/js/main.16187336.js",
+    "main.js": "/sd-bingo-webapp/static/js/main.a9738dbf.js",
     "static/js/787.9086b5fe.chunk.js": "/sd-bingo-webapp/static/js/787.9086b5fe.chunk.js",
+    "static/media/orange_dab.svg": "/sd-bingo-webapp/static/media/orange_dab.fd8f0e3bf387c0d7c5592a74cf0826e6.svg",
     "static/media/sd-bingo-logo.png": "/sd-bingo-webapp/static/media/sd-bingo-logo.8711bc85b16f9c035212.png",
+    "static/media/yellow_dab.svg": "/sd-bingo-webapp/static/media/yellow_dab.04e5ba6f0de6479d5827535cd2ac0067.svg",
+    "static/media/purple_dab.svg": "/sd-bingo-webapp/static/media/purple_dab.119b58d0da2bb6d32ec92d541dd60f12.svg",
+    "static/media/teal_dab.svg": "/sd-bingo-webapp/static/media/teal_dab.60d58b26d8a59053e71a3b1db035b6c3.svg",
+    "static/media/red_dab.svg": "/sd-bingo-webapp/static/media/red_dab.154acd9ca974bce78d47beb9248fc5f1.svg",
+    "static/media/pink_dab.svg": "/sd-bingo-webapp/static/media/pink_dab.a6ea8250f2c90e757e2a815ad875a732.svg",
     "index.html": "/sd-bingo-webapp/index.html",
     "main.e9e52389.css.map": "/sd-bingo-webapp/static/css/main.e9e52389.css.map",
-    "main.16187336.js.map": "/sd-bingo-webapp/static/js/main.16187336.js.map",
+    "main.a9738dbf.js.map": "/sd-bingo-webapp/static/js/main.a9738dbf.js.map",
     "787.9086b5fe.chunk.js.map": "/sd-bingo-webapp/static/js/787.9086b5fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9e52389.css",
-    "static/js/main.16187336.js"
+    "static/js/main.a9738dbf.js"
   ]
 }
