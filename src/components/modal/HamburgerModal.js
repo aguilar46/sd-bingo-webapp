@@ -33,7 +33,6 @@ const StyledText = styled.div`
 export const hamburgerReturnOptions = {
   NEW_GAME: 'new-game',
   CLEAR_BOARD: 'clear-board',
-  // TOGGLE_LONG_PRESS: 'toggle-long-press',
   VIEW_ALL_OPTIONS: 'view-all-options',
   BINGO_TYPE: 'change-bingo-type',
   ABOUT: 'about',
@@ -43,7 +42,6 @@ export const hamburgerReturnOptions = {
 const displayNameMap = {
   [hamburgerReturnOptions.NEW_GAME]: 'New Game',
   [hamburgerReturnOptions.CLEAR_BOARD]: 'Clear Board',
-  [hamburgerReturnOptions.TOGGLE_LONG_PRESS]: 'Toggle Long Press Action',
   [hamburgerReturnOptions.VIEW_ALL_OPTIONS]: 'View All Options',
   [hamburgerReturnOptions.EXPORT]: 'Copy to Clipboard',
   [hamburgerReturnOptions.ABOUT]: 'About',

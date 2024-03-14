@@ -31,9 +31,7 @@ const StyledSpace = styled(BingoSpace)`
 
 const Board = forwardRef((props, ref) => {
   const [bingoType, setBingoType] = useAtom(atoms.bingoType);
-  const [longPressAction] = useAtom(atoms.longPressAction);
   const [board, setBoard] = useAtom(atoms.board);
-  const { modal: infoModal, show: showInfo } = useModal(InfoModal);
   const { modal: bingoModal, show: showBingoAndAsk } = useModal(BingoModal);
 
   if (!board) {
@@ -68,15 +66,7 @@ const Board = forwardRef((props, ref) => {
     setBoard(newBoard);
   };
 
-  const viewInfo = (row, column) => {
-    const space = board[row][column];
-    showInfo({ message: space.full });
-  };
-
-  const onPress = (row, column) =>
-    longPressAction === touchTypes.VIEW
-      ? toggleSelect(row, column)
-      : viewInfo(row, column);
+  const onPress = (row, column) => toggleSelect(row, column);
 
   return (
     <MainView className="top-view" ref={ref}>
@@ -90,7 +80,6 @@ const Board = forwardRef((props, ref) => {
           />
         ))
       )}
-      {infoModal}
       {bingoModal}
     </MainView>
   );

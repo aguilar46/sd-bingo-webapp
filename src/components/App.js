@@ -54,12 +54,8 @@ const clearBoard = (board) => {
   return newBoard;
 };
 
-const getToggleLongPress = (action) =>
-  action === touchTypes.VIEW ? touchTypes.SELECT : touchTypes.VIEW;
-
 const App = (props) => {
   const [bingoType, setBingoType] = useAtom(atoms.bingoType);
-  const [longPressAction, setLongPressAction] = useAtom(atoms.longPressAction);
   const [board, setBoard] = useAtom(atoms.board);
   const boardRef = useRef();
 
@@ -90,9 +86,6 @@ const App = (props) => {
           break;
         case hamburgerReturnOptions.BINGO_TYPE:
           setBingoType(payload.value);
-          break;
-        case hamburgerReturnOptions.TOGGLE_LONG_PRESS:
-          setLongPressAction(getToggleLongPress(longPressAction));
           break;
         case hamburgerReturnOptions.VIEW_ALL_OPTIONS:
           showAllOptions();

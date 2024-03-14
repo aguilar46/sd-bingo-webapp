@@ -46,14 +46,8 @@ const bingoType = atomWithStorage(
   { getOnInit: true }
 );
 
-const longPressAction = atomWithStorage(
-  `${PREFIX}-${dataTypes.LONG_PRESS}`,
-  touchTypes.VIEW
-);
-
 export const atoms = {
   board,
   bingoType,
-  longPressAction,
   markColor,
 };

@@ -50,6 +50,7 @@ const BingoSpace = (props) => {
       {..._.omit(props, ['label'])}
       className="bingo-space"
       imageUrl={image}
+      title={label}
     >
       {label}
     </Space>

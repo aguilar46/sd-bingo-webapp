@@ -47,7 +47,7 @@ const BingoModal = (props) => {
           className="bingo-modal-change-type"
           placeholder="Change Game Type"
           excludeType={bingoType}
-          onValueChange={(value) =>
+          onChange={({ value }) =>
             onRequestClose({
               returnValue: {
                 selectedOption: returnOptions.CHANGE_TYPE,

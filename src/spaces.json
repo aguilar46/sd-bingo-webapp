@@ -2,103 +2,34 @@
   "name": "SD",
   "customFreeSpace": null,
   "options": [
-    {
-      "short": "An architect by name",
-      "full": "An architect is mentioned by name"
-    },
-    { "short": "You ask a question", "full": "You ask a question" },
-    {
-      "short": "\"...doc writer... another team...\"",
-      "full": "\"Our doc writer was working on stuff for another team\""
-    },
-    {
-      "short": "Someone forgets to share their screen",
-      "full": "Someone forgets to share their screen"
-    },
-    {
-      "short": "Action item about code reviews",
-      "full": "There's an action item about code reviews"
-    },
-    {
-      "short": "Shoutout or thanks to someone",
-      "full": "Shoutout or thanks to someone not on the team presenting"
-    },
-    {
-      "short": "team explains outlier on chart",
-      "full": "A team explains an outlier on their control chart"
-    },
-    {
-      "short": "All 3 \"Previous top bugs\" are closed",
-      "full": "All 3 \"Previous top bugs\" are closed"
-    },
-    {
-      "short": "You see Work Flows in a demo",
-      "full": "You see WorkFlows in a demo"
-    },
-    { "short": "Non-human noise", "full": "Non-human noise" },
-    {
-      "short": "Someone other than Berit asks a question",
-      "full": "Someone other than Berit asks a question"
-    },
-    {
-      "short": "You see code as part of a demo",
-      "full": "You see code as part of a demo"
-    },
-    {
-      "short": "\"Our team had a lot of PTO\"",
-      "full": "\"Our team had a lot of PTO\""
-    },
-    {
-      "short": "A cat appears in video",
-      "full": "A cat appears in someone's video"
-    },
-    {
-      "short": "\"Can you see my screen?\"",
-      "full": "\"Can you see my screen?\""
-    },
-    {
-      "short": "A feature will be released on time",
-      "full": "A feature will be released on time"
-    },
-    {
-      "short": "A team update on tech debt",
-      "full": "A team has an update on their technical debt"
-    },
-    {
-      "short": "Someone named Nate or Nathan presents",
-      "full": "Someone named Nate or Nathan presents"
-    },
-    {
-      "short": "Someone not in Eng comment",
-      "full": "Someone not in Engineering comments"
-    },
-    {
-      "short": "You see BC Central in a demo",
-      "full": "You see BLUEcloud Central in a demo"
-    },
-    {
-      "short": "Someone mentions they tried some thing new",
-      "full": "Someone mentions they tried something new"
-    },
-    {
-      "short": "Team goal multiple sprints",
-      "full": "Team goal carried over multiple sprints"
-    },
-    { "short": "\"Sorry, I was on mute\"", "full": "\"Sorry, I was on mute\"" },
-    { "short": "Berit remarks on a demo", "full": "Berit remarks on a demo" },
-    {
-      "short": "A team reports on invest of new tech",
-      "full": "A team reports on investigating a new technology"
-    },
-    { "short": "A dev director chimes in", "full": "A dev director chimes in" },
-    { "short": "\"Can you hear me?\"", "full": "\"Can you hear me?\"" },
-    {
-      "short": "A customer or library by name",
-      "full": "A customer or library is mentioned by name"
-    },
-    {
-      "short": "A prog language by name",
-      "full": "A programming language is mentioned by name"
-    }
+    "An architect is mentioned by name",
+    "You ask a question",
+    "\"Our doc writer was working on stuff for another team\"",
+    "Someone forgets to share their screen",
+    "There's an action item about code reviews",
+    "Shoutout or thanks to someone not on the team presenting",
+    "A team explains an outlier on their control chart",
+    "All 3 \"Previous top bugs\" are closed",
+    "You see WorkFlows in a demo",
+    "Non-human noise",
+    "Someone other than Berit asks a question",
+    "You see code as part of a demo",
+    "\"Our team had a lot of PTO\"",
+    "A cat appears in someone's video",
+    "\"Can you see my screen?\"",
+    "A feature will be released on time",
+    "A team has an update on their technical debt",
+    "Someone named Nate or Nathan presents",
+    "Someone not in Engineering comments",
+    "You see BLUEcloud Central in a demo",
+    "Someone mentions they tried something new",
+    "Team goal carried over multiple sprints",
+    "\"Sorry, I was on mute\"",
+    "Berit remarks on a demo",
+    "A team reports on investigating a new technology",
+    "A dev director chimes in",
+    "\"Can you hear me?\"",
+    "A customer or library is mentioned by name",
+    "A programming language is mentioned by name"
   ]
 }
