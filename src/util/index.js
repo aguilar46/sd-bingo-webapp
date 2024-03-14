@@ -12,10 +12,8 @@ const buildDefaultFreeSpace = () => ({
 
 export const createNewBoard = () => {
   const { options, customFreeSpace } = spacesCfg;
-  const boardSpaces = _.shuffle(options);
-  const newBoard = _.chunk(boardSpaces, 5)
-    .slice(0, 5)
-    .map((label) => ({ full: label }));
+  const boardSpaces = _.shuffle(options).map((label) => ({ full: label }));
+  const newBoard = _.chunk(boardSpaces, 5).slice(0, 5);
 
   newBoard[2][2] = customFreeSpace
     ? { full: customFreeSpace }

@@ -9,6 +9,7 @@ export const useModal = (ModalComp = Modal, defaultProps) => {
 
   useEffect(() => {
     setProps((props) => ({ ...props, ...defaultProps }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const show = (showProps) =>

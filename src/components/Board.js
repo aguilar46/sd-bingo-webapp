@@ -9,10 +9,9 @@ import styled from 'styled-components';
 import { useAtom } from 'jotai';
 //local
 import BingoSpace from './BingoSpace';
-import { touchTypes, atoms } from '../data';
+import { atoms } from '../data';
 import { createNewBoard } from '../util';
 import { useModal } from '../util/useModal';
-import InfoModal from './modal/InfoModal';
 import bingoValidators from '../util/bingo-validators';
 import BingoModal, { returnOptions } from './modal/BingoModal';
 
@@ -75,7 +74,7 @@ const Board = forwardRef((props, ref) => {
           <StyledSpace
             key={`board-space-row-${rowIdx}-col-${colIdx}`}
             selected={space.isSelected}
-            label={space.short}
+            label={space.full}
             onClick={() => onPress(rowIdx, colIdx)}
           />
         ))
