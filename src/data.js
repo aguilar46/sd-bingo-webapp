@@ -16,7 +16,24 @@ export const dataTypes = {
   GAME: 'game',
   LONG_PRESS: 'long-press-action',
   BINGO_TYPE: 'bingo-type',
+  MARK_COLOR: 'mark-color',
 };
+
+export const markColors = {
+  RED: 'red',
+  ORANGE: 'orange',
+  PINK: 'pink',
+  TEAL: 'teal',
+  PURPLE: 'purple',
+  YELLOW: 'yellow',
+};
+
+const markColor = atomWithStorage(
+  `${PREFIX}-${dataTypes.MARK_COLOR}`,
+  markColors.RED,
+  undefined,
+  { getOnInit: true }
+);
 
 const board = atomWithStorage(`${PREFIX}-${dataTypes.GAME}`, null, undefined, {
   getOnInit: true,
@@ -38,4 +55,5 @@ export const atoms = {
   board,
   bingoType,
   longPressAction,
+  markColor,
 };

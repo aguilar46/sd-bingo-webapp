@@ -1,5 +1,5 @@
 //3rd party
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 import { useAtom } from 'jotai';
@@ -14,6 +14,7 @@ import { getBingoTypeDisplayName, createNewBoard } from '../util';
 import gearIcon from '../images/211751_gear_icon.png';
 import InfoModal from './modal/InfoModal';
 import AboutView from './AboutView';
+import { toBlob } from 'html-to-image';
 
 const TopView = styled.div`
   height: 100%;
@@ -60,6 +61,7 @@ const App = (props) => {
   const [bingoType, setBingoType] = useAtom(atoms.bingoType);
   const [longPressAction, setLongPressAction] = useAtom(atoms.longPressAction);
   const [board, setBoard] = useAtom(atoms.board);
+  const boardRef = useRef();
 
   const { modal: hamburgerModal, show: showHamburgerModal } =
     useModal(HamburgerModal);
@@ -75,7 +77,7 @@ const App = (props) => {
   }, [board, setBoard]);
 
   const handleHamburgerModal = async () => {
-    const result = await showHamburgerModal({ bingoType: bingoType });
+    const result = await showHamburgerModal({ bingoType });
 
     if (result) {
       const { action, payload } = result;
@@ -98,6 +100,14 @@ const App = (props) => {
         case hamburgerReturnOptions.ABOUT:
           showAboutModal({ message: <AboutView /> });
           break;
+        case hamburgerReturnOptions.EXPORT:
+          const blob = await toBlob(boardRef.current, { cacheBust: true });
+          navigator.clipboard.write([
+            new ClipboardItem({
+              [blob.type]: blob,
+            }),
+          ]);
+          break;
         default:
           break;
       }
@@ -116,7 +126,7 @@ const App = (props) => {
           onClick={handleHamburgerModal}
         />
       </HeaderView>
-      <Board className="game-board" />
+      <Board className="game-board" ref={boardRef} />
       {hamburgerModal}
       {allOptionsModal}
       {aboutModal}

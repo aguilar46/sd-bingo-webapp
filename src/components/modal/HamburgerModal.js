@@ -9,6 +9,9 @@ import styled from 'styled-components';
 import BingoTypeCombo from '../BingoTypeCombo';
 //local
 import { CloseBtn, ModalBtn } from './ModalComponents';
+import { Combobox } from 'react-widgets';
+import { atoms, markColors } from '../../data';
+import { useAtom } from 'jotai';
 
 const InnerView = styled.div`
   position: absolute;
@@ -34,6 +37,7 @@ export const hamburgerReturnOptions = {
   VIEW_ALL_OPTIONS: 'view-all-options',
   BINGO_TYPE: 'change-bingo-type',
   ABOUT: 'about',
+  EXPORT: 'export',
 };
 
 const displayNameMap = {
@@ -41,11 +45,18 @@ const displayNameMap = {
   [hamburgerReturnOptions.CLEAR_BOARD]: 'Clear Board',
   [hamburgerReturnOptions.TOGGLE_LONG_PRESS]: 'Toggle Long Press Action',
   [hamburgerReturnOptions.VIEW_ALL_OPTIONS]: 'View All Options',
+  [hamburgerReturnOptions.EXPORT]: 'Copy to Clipboard',
   [hamburgerReturnOptions.ABOUT]: 'About',
 };
 
+const markColorOptions = Object.values(markColors).map((color) => ({
+  value: color,
+  label: `${color[0].toUpperCase()}${color.slice(1)}`,
+}));
+
 const HamburgerModal = (props) => {
   const { onRequestClose, bingoType } = props;
+  const [markColor, setMarkColor] = useAtom(atoms.markColor);
 
   const onClose = (action, payload) =>
     onRequestClose({ returnValue: { action, payload } });
@@ -58,6 +69,11 @@ const HamburgerModal = (props) => {
       </ModalBtn>
     ));
 
+  const onColorChange = ({ value }) => {
+    setMarkColor(value);
+    onClose('nothing', null);
+  };
+
   return (
     <Modal {...props} className="hamburger-modal">
       <InnerView className="hamburger-inner">
@@ -66,6 +82,14 @@ const HamburgerModal = (props) => {
         <BingoTypeCombo
           defaultValue={bingoType}
           onChange={(type) => onClose(hamburgerReturnOptions.BINGO_TYPE, type)}
+        />
+        <StyledText>Mark Color</StyledText>
+        <Combobox
+          value={markColor}
+          data={markColorOptions}
+          dataKey="value"
+          textField="label"
+          onChange={onColorChange}
         />
         <CloseBtn onClick={onClose}>Cancel</CloseBtn>
       </InnerView>

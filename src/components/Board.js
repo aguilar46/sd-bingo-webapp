@@ -3,7 +3,7 @@
  * Created On: 2021-01-15T03:51:09.320Z
  */
 //3rd Party
-import React from 'react';
+import React, { forwardRef } from 'react';
 import _ from 'lodash';
 import styled from 'styled-components';
 import { useAtom } from 'jotai';
@@ -21,6 +21,7 @@ const MainView = styled.div`
   flex: 1;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  background-color: white;
   /* flex-direction: column; */
 `;
 
@@ -28,7 +29,7 @@ const StyledSpace = styled(BingoSpace)`
   width: 20%;
 `;
 
-const Board = (props) => {
+const Board = forwardRef((props, ref) => {
   const [bingoType, setBingoType] = useAtom(atoms.bingoType);
   const [longPressAction] = useAtom(atoms.longPressAction);
   const [board, setBoard] = useAtom(atoms.board);
@@ -77,13 +78,8 @@ const Board = (props) => {
       ? toggleSelect(row, column)
       : viewInfo(row, column);
 
-  const onLongPress = (row, column) =>
-    longPressAction === touchTypes.SELECT
-      ? toggleSelect(row, column)
-      : viewInfo(row, column);
-
   return (
-    <MainView className="top-view">
+    <MainView className="top-view" ref={ref}>
       {board.map((row, rowIdx) =>
         row.map((space, colIdx) => (
           <StyledSpace
@@ -98,6 +94,6 @@ const Board = (props) => {
       {bingoModal}
     </MainView>
   );
-};
+});
 
 export default Board;

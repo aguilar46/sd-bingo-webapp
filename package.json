@@ -4,6 +4,8 @@
   "homepage": "https://aguilar46.github.io/sd-bingo-webapp",
   "private": true,
   "dependencies": {
+    "downloadjs": "^1.4.7",
+    "html-to-image": "^1.11.11",
     "jotai": "^2.6.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
