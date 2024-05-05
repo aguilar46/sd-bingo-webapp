@@ -5,6 +5,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
+import { generateClassname } from '../../util';
 
 const TopView = styled.div`
   flex: 1;
@@ -22,8 +23,11 @@ const InnerView = styled.div`
 `;
 
 const ModalView = (props) => (
-  <TopView {..._.omit(props, ['children'])}>
-    <InnerView>{props.children}</InnerView>
+  <TopView
+    className={generateClassname('modal-view', props.className)}
+    {..._.omit(props, ['children', 'className'])}
+  >
+    <InnerView className="inner-modal-view">{props.children}</InnerView>
   </TopView>
 );
 

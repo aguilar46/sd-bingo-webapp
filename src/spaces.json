@@ -30,6 +30,9 @@
     "A dev director chimes in",
     "\"Can you hear me?\"",
     "A customer or library is mentioned by name",
-    "A programming language is mentioned by name"
+    "A programming language is mentioned by name",
+    "You see a REST Client (eg. PostMan) in a demo",
+    "Some mentions a database (MySQL, Postgres, etc...)",
+    "A team has 3 or more demos"
   ]
 }

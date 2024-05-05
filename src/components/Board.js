@@ -48,6 +48,7 @@ const Board = forwardRef((props, ref) => {
     hasBingo &&
       showBingoAndAsk({
         bingoType,
+        boardRef: ref,
       }).then((result = {}) => {
         const { selectedOption } = result;
         switch (selectedOption) {

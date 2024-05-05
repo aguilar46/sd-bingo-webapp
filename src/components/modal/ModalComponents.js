@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ModalBtn = styled.button`
   margin-top: 5px;
   margin-bottom: 5px;
+  padding: 1em;
 `;
 
 export const ModalInfoText = styled.div`

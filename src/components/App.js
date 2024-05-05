@@ -3,6 +3,9 @@ import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 import { useAtom } from 'jotai';
+import { toBlob } from 'html-to-image';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //local
 import './App.css';
 import Board from './Board';
@@ -14,9 +17,6 @@ import { getBingoTypeDisplayName, createNewBoard } from '../util';
 import gearIcon from '../images/211751_gear_icon.png';
 import InfoModal from './modal/InfoModal';
 import AboutView from './AboutView';
-import { toBlob } from 'html-to-image';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const TopView = styled.div`
   height: 100%;
