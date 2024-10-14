@@ -1,6 +1,6 @@
 {
   "name": "sd-bingo-web",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "homepage": "https://aguilar46.github.io/sd-bingo-webapp",
   "private": true,
   "dependencies": {
