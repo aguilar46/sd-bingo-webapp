@@ -10,6 +10,8 @@ export const touchTypes = {
 export const bingoTypes = {
   TRADITIONAL: 'traditional',
   BLACKOUT: 'blackout',
+  DOUBLE: 'double',
+  TRIPLE: 'triple',
 };
 
 export const dataTypes = {
