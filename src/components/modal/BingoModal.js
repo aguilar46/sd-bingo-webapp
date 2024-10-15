@@ -27,6 +27,9 @@ const StyledInfoText = styled(ModalInfoText)`
 
 const StyledCombo = styled(BingoTypeCombo)`
   width: 300px;
+  button {
+    width: 100%;
+  }
 `;
 
 const StyledModal = styled(Modal)`

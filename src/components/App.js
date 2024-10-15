@@ -17,6 +17,7 @@ import { getBingoTypeDisplayName, createNewBoard } from '../util';
 import gearIcon from '../images/211751_gear_icon.png';
 import InfoModal from './modal/InfoModal';
 import AboutView from './AboutView';
+import ReactModal from 'react-modal';
 
 const TopView = styled.div`
   height: 100%;
@@ -67,6 +68,9 @@ const App = (props) => {
     useModal(OptionsModal);
   const { modal: aboutModal, show: showAboutModal } = useModal(InfoModal);
 
+  useEffect(() => {
+    ReactModal.setAppElement('body');
+  }, []);
   //init board
   useEffect(() => {
     if (!board) {

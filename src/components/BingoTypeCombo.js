@@ -9,6 +9,7 @@ import _ from 'lodash';
 import { bingoTypes } from '../data';
 import { getBingoTypeDisplayName } from '../util';
 import { Combobox } from 'react-widgets';
+import 'react-widgets/styles.css';
 
 const allTypes = Object.values(bingoTypes).map((value) => ({
   label: getBingoTypeDisplayName(value),
