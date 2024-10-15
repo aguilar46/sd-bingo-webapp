@@ -18,6 +18,7 @@ import { atoms, markColors } from '../data';
 import { useWindowSize } from '../util/useWindowSize';
 
 const Space = styled.button`
+  position: relative;
   border: solid 1px black;
   text-shadow: 1px 1px white;
   font-size: 1em;
@@ -28,17 +29,21 @@ const Space = styled.button`
   background-color: transparent;
 `;
 
-const BackgroundDiv = styled.div`
+const StyledImg = styled.img`
+  position: absolute;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  background: url(${(props) => props.selected && props.imageUrl}) 0 0 no-repeat;
-  /* transform: rotate(${(props) => props.rotation}turn); */
-  background-position: ${(props) => props.clientXY || 'center'};
+  ${(props) => {
+    const { x, y } = props.clientXY;
+    return `
+    left: ${x}px;
+    top: ${y}px;
+    `;
+  }}
+  transform: rotate(${(props) => props.rotation}turn);
 `;
-
 const LabeDiv = styled.div`
-  /* transform: rotate(${(props) => props.rotation}turn); */
+  position: relative;
   height: 100%;
   align-content: center;
 `;
@@ -57,9 +62,11 @@ const BingoSpace = (props) => {
   const markColor = useAtomValue(atoms.markColor);
   const image = markImages[markColor];
   const [rotation, setRotation] = useState(0);
-  const [clientXY, setClientXY] = useState(null);
-  const onUpdateSize = useCallback(() => setClientXY(null), []);
+  const [clientXY, setClientXY] = useState({ x: 0, y: 0 });
+  const onUpdateSize = useCallback(() => setClientXY({ x: 0, y: 0 }), []);
   useWindowSize(onUpdateSize);
+
+  //initialize rotation
   useEffect(() => {
     setRotation(Math.random());
   }, []);
@@ -71,23 +78,25 @@ const BingoSpace = (props) => {
       title={label}
       onClick={(e) => {
         const { x, y, width, height } = e.target.getBoundingClientRect();
-        const minor = width < height ? width : height;
-        const shift = minor / 2;
-        const relX = e.clientX - (x + shift);
-        const relY = e.clientY - (y + shift);
-        setClientXY(`${relX}px ${relY}px`);
+        const x_m = x + width / 2;
+        const y_m = y + height / 2;
+        const x_l = e.clientX - x_m;
+        const y_t = e.clientY - y_m;
+        setClientXY({ x: x_l, y: y_t });
         onClick(e);
       }}
     >
-      <BackgroundDiv
-        className="background-div"
-        selected={selected}
-        imageUrl={image}
-        rotation={rotation}
-        clientXY={clientXY}
-      >
-        <LabeDiv rotation={1 - rotation}>{label}</LabeDiv>
-      </BackgroundDiv>
+      {selected && (
+        <StyledImg
+          src={image}
+          className="background-div"
+          selected={selected}
+          imageUrl={image}
+          rotation={rotation}
+          clientXY={clientXY}
+        />
+      )}
+      <LabeDiv rotation={1 - rotation}>{label}</LabeDiv>
     </Space>
   );
 };
