@@ -3,7 +3,7 @@
  * Created On: 2021-01-15T05:35:26.505Z
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 import redMark from '../images/red_dab.svg';
@@ -15,6 +15,7 @@ import tealMark from '../images/teal_dab.svg';
 import PropTypes from 'prop-types';
 import { useAtomValue } from 'jotai';
 import { atoms, markColors } from '../data';
+import { useWindowSize } from '../util/useWindowSize';
 
 const Space = styled.button`
   border: solid 1px black;
@@ -25,7 +26,6 @@ const Space = styled.button`
   justify-content: center;
   align-items: center;
   background-color: transparent;
-  overflow: hidden;
 `;
 
 const BackgroundDiv = styled.div`
@@ -33,12 +33,12 @@ const BackgroundDiv = styled.div`
   height: 100%;
   z-index: -1;
   background: url(${(props) => props.selected && props.imageUrl}) 0 0 no-repeat;
-  transform: rotate(${(props) => props.rotation}turn);
-  background-position: center;
+  /* transform: rotate(${(props) => props.rotation}turn); */
+  background-position: ${(props) => props.clientXY || 'center'};
 `;
 
 const LabeDiv = styled.div`
-  transform: rotate(${(props) => props.rotation}turn);
+  /* transform: rotate(${(props) => props.rotation}turn); */
   height: 100%;
   align-content: center;
 `;
@@ -53,22 +53,38 @@ const markImages = {
 };
 
 const BingoSpace = (props) => {
-  const { label, selected } = props;
+  const { label, selected, onClick } = props;
   const markColor = useAtomValue(atoms.markColor);
   const image = markImages[markColor];
   const [rotation, setRotation] = useState(0);
-
+  const [clientXY, setClientXY] = useState(null);
+  const onUpdateSize = useCallback(() => setClientXY(null), []);
+  useWindowSize(onUpdateSize);
   useEffect(() => {
     setRotation(Math.random());
   }, []);
 
   return (
-    <Space {..._.omit(props, ['label'])} className="bingo-space" title={label}>
+    <Space
+      {..._.omit(props, ['label', 'onClick', 'selected'])}
+      className="bingo-space"
+      title={label}
+      onClick={(e) => {
+        const { x, y, width, height } = e.target.getBoundingClientRect();
+        const minor = width < height ? width : height;
+        const shift = minor / 2;
+        const relX = e.clientX - (x + shift);
+        const relY = e.clientY - (y + shift);
+        setClientXY(`${relX}px ${relY}px`);
+        onClick(e);
+      }}
+    >
       <BackgroundDiv
         className="background-div"
         selected={selected}
         imageUrl={image}
         rotation={rotation}
+        clientXY={clientXY}
       >
         <LabeDiv rotation={1 - rotation}>{label}</LabeDiv>
       </BackgroundDiv>
