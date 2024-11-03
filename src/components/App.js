@@ -6,6 +6,7 @@ import { useAtom } from 'jotai';
 import { toBlob } from 'html-to-image';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactModal from 'react-modal';
 //local
 import './App.css';
 import Board from './Board';
@@ -17,7 +18,6 @@ import { getBingoTypeDisplayName, createNewBoard } from '../util';
 import gearIcon from '../images/211751_gear_icon.png';
 import InfoModal from './modal/InfoModal';
 import AboutView from './AboutView';
-import ReactModal from 'react-modal';
 
 const TopView = styled.div`
   height: 100%;

@@ -1,15 +1,15 @@
 /**
  * Author: RSP Aguilar
- * Created Date: 2021-01-26T04:28:24.415Z
+ * Created: 2021
  */
 //3rd party
 import React, { useMemo } from 'react';
 import _ from 'lodash';
+import { Combobox } from 'react-widgets';
+import 'react-widgets/styles.css';
 //local
 import { bingoTypes } from '../data';
 import { getBingoTypeDisplayName } from '../util';
-import { Combobox } from 'react-widgets';
-import 'react-widgets/styles.css';
 
 const allTypes = Object.values(bingoTypes).map((value) => ({
   label: getBingoTypeDisplayName(value),

@@ -1,10 +1,11 @@
 /**
  * Author: RSP Aguilar
- * Created On: 2021-01-16T01:34:22.689Z
+ * Created: 2021
  */
 import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
+
 import { generateClassname } from '../../util';
 
 const TopView = styled.div`

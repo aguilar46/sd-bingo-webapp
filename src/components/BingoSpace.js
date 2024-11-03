@@ -6,14 +6,15 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import { useAtomValue } from 'jotai';
+
 import redMark from '../images/red_dab.svg';
 import orangeMark from '../images/orange_dab.svg';
 import yellowMark from '../images/yellow_dab.svg';
 import pinkMark from '../images/pink_dab.svg';
 import purpleMark from '../images/purple_dab.svg';
 import tealMark from '../images/teal_dab.svg';
-import PropTypes from 'prop-types';
-import { useAtomValue } from 'jotai';
 import { atoms, markColors } from '../data';
 import { useWindowSize } from '../util/useWindowSize';
 

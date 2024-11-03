@@ -19,6 +19,7 @@ const Spacer = styled.div`
 const options = optionData.options;
 
 const StyledList = styled(Listbox)`
+  max-height: calc(85vh - 75px);
   .rw-list-option {
     border-top: solid 1px black;
   }
@@ -28,13 +29,19 @@ const StyledList = styled(Listbox)`
   }
 `;
 
+const Title = styled.div`
+  font-size: 1.25em;
+`;
+
 const OptionsModal = (props) => {
   const { onRequestClose } = props;
 
   return (
     <Modal {...props}>
       <ModalView>
-        <StyledList data={options} textField="full" />
+        <Title>Options</Title>
+        <br />
+        <StyledList data={options} textField="full" readOnly />
         <Spacer />
         <ModalBtn onClick={onRequestClose}> Close </ModalBtn>
       </ModalView>
