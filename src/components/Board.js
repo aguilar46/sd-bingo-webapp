@@ -37,33 +37,37 @@ const Board = forwardRef((props, ref) => {
     return null;
   }
 
-  const toggleSelect = (row, column) => {
+  const toggleSelect = async (row, column) => {
     const newBoard = _.cloneDeep(board);
     const space = newBoard[row][column];
 
     space.isSelected = !space.isSelected;
 
     const hasBingo = bingoType && bingoValidators[bingoType](newBoard);
+    setBoard(newBoard);
 
-    hasBingo &&
-      showBingoAndAsk({
+    if (hasBingo) {
+      //wait 150ms to show bingo modal
+      await new Promise((resolve) => setTimeout(resolve, 150));
+      const result = await showBingoAndAsk({
         bingoType,
         boardRef: ref,
-      }).then((result = {}) => {
-        const { selectedOption } = result;
-        switch (selectedOption) {
-          case returnOptions.NEW_GAME:
-            setBoard(createNewBoard());
-            break;
-          case returnOptions.CHANGE_TYPE:
-            setBingoType(result.bingoType);
-            break;
-          default:
-            break;
-        }
       });
-
-    setBoard(newBoard);
+      if (!result) {
+        return;
+      }
+      const { selectedOption } = result;
+      switch (selectedOption) {
+        case returnOptions.NEW_GAME:
+          setBoard(createNewBoard());
+          break;
+        case returnOptions.CHANGE_TYPE:
+          setBingoType(result.bingoType);
+          break;
+        default:
+          break;
+      }
+    }
   };
 
   const onPress = (row, column) => toggleSelect(row, column);
